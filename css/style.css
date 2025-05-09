@@ -203,10 +203,10 @@ a, a:hover {
   max-width: 250px;
   margin: 0 auto;
   max-height: 250px;
-  background-color: #aaa;
+  background-color: #999;
 }
 .fh5co-content-box .trainers .card .card-body {
-  background: #ccc;
+  background: #aaa;
   border-radius: 15px;
   padding: 30px 20px;
   margin-top: 30px;
@@ -215,8 +215,8 @@ a, a:hover {
 .fh5co-content-box .trainers .card .card-body::before {
   content: "";
   position: absolute;
-  border: 20px solid #ccc;
-  border-color: transparent transparent #ccc transparent;
+  border: 20px solid #aaa;
+  border-color: transparent transparent #aaa transparent;
   margin-top: -70px;
   text-align: center;
   margin-left: -15px;
