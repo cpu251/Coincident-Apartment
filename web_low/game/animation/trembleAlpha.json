@@ -1,0 +1,111 @@
+[
+  {
+    "alpha": 0,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "duration": 0
+  },
+  {
+    "alpha": 0.2,
+    "position": {
+      "x": -20
+    },
+    "duration": 100
+  },
+  {
+    "alpha": 0.4,
+    "position": {
+      "y": -20
+    },
+    "duration": 100
+  },
+  {
+    "alpha": 0.6,
+    "position": {
+      "x": 0
+    },
+    "duration": 100
+  },
+  {
+    "alpha": 0.8,
+    "position": {
+      "x": 20
+    },
+    "duration": 100
+  },
+  {
+    "alpha": 1,
+    "position": {
+      "y": 0
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "y": 20
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 0
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "y": 0
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": -20
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "y": -20
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 0
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 20
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "y": 0
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "y": 20
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 0
+    },
+    "duration": 100
+  },
+  {
+    "position": {
+      "y": 0
+    },
+    "duration": 100
+  }
+]

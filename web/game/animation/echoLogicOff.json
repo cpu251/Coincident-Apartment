@@ -1,0 +1,30 @@
+[
+  {
+    "alpha": 1,
+    "ctrFilm": 1,
+    "colorOverlayFilm": 1,
+    "asciiFilm": 1,
+    "duration": 0
+  },
+  {
+    "alpha": 0,
+    "ctrFilm": 1,
+    "colorOverlayFilm": 1,
+    "asciiFilm": 1,
+    "duration": 700
+  },
+  {
+    "alpha": 0,
+    "ctrFilm": 0,
+    "colorOverlayFilm": 0,
+    "asciiFilm": 0,
+    "duration": 0
+  },
+  {
+    "alpha": 1,
+    "ctrFilm": 0,
+    "colorOverlayFilm": 0,
+    "asciiFilm": 0,
+    "duration": 700
+  }
+]

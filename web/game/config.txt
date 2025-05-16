@@ -1,0 +1,12 @@
+Game_name:奇巧公寓;
+Game_key:0f87dstRg;
+Title_img:bg_home.webp;
+Title_video:bg_home.mp4;
+Title_bgm:cat_detective.mp3;
+Title_logo:bg_logo.webp;
+Game_Logo:bg_warn.webp;
+Enable_Appreciation:true;
+Description:奇巧公寓;
+Package_name:com.bearcat.coincidentapartment;
+Game_ver:0.1.233;
+versionCode:1;

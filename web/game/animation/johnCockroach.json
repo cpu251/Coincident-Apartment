@@ -1,0 +1,126 @@
+[
+  {
+    "position": {
+      "x": -1500,
+      "y": 0
+    },
+    "blur": 10,
+    "rotation": -0.5, 
+    "duration": 0
+  },
+  {
+    "position": {
+      "x": -900,
+      "y": -500
+    },
+    "blur": 10,
+    "rotation": -0.5, 
+    "duration": 300
+  },
+  {
+    "position": {
+      "x": -900,
+      "y": -500
+    },
+    "blur": 0,
+    "rotation": -0.5, 
+    "duration": 500
+  },
+  {
+    "position": {
+      "x": -900,
+      "y": -500
+    },
+    "blur": 5,
+    "rotation": 0, 
+    "duration": 300
+  },
+  {
+    "position": {
+      "x": -200,
+      "y": 450
+    },
+    "blur": 10,
+    "rotation": 0.4, 
+    "duration": 300
+  },
+  {
+    "position": {
+      "x": -200,
+      "y": 450
+    },
+    "blur": 0,
+    "rotation": 0.4, 
+    "duration": 200
+  },
+  {
+    "position": {
+      "x": -200,
+      "y": 450
+    },
+    "blur": 5,
+    "rotation": 0, 
+    "duration": 500
+  },
+  {
+    "position": {
+      "x": 1300,
+      "y": 0
+    },
+    "blur": 10,
+    "rotation": -0.4, 
+    "duration": 200
+  },
+  {
+    "alpha": 0,
+    "position": {
+      "x": 1300,
+      "y": 0
+    },
+    "blur": 10,
+    "rotation": -0.4, 
+    "duration": 500
+  },
+  {
+    "alpha": 0,
+    "position": {
+      "x": 1100,
+      "y": 0
+    },
+    "scale": {
+      "x": -1,
+      "y": 1
+    },
+    "blur": 0,
+    "rotation": 0, 
+    "duration": 500
+  },
+  {
+    "alpha": 1,
+    "position": {
+      "x": 1100,
+      "y": 0
+    },
+    "scale": {
+      "x": -1,
+      "y": 1
+    },
+    "blur": 0,
+    "rotation": 0, 
+    "duration": 100
+  },
+  {
+    "alpha": 1,
+    "position": {
+      "x": -1700,
+      "y": 0
+    },
+    "scale": {
+      "x": -1,
+      "y": 1
+    },
+    "blur": 10,
+    "rotation": 0, 
+    "duration": 500
+  }
+]

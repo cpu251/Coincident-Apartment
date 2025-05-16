@@ -1,0 +1,58 @@
+[
+  {
+    "position": {
+      "x": 0
+    },
+    "duration": 0
+  },
+  {
+    "position": {
+      "x": 500
+    },
+    "duration": 1000
+  },
+  {
+    "position": {
+      "x": 500
+    },
+    "duration": 1000
+  },
+  {
+    "position": {
+      "x": 1000
+    },
+    "duration": 1000
+  },
+  {
+    "position": {
+      "x": 1000
+    },
+    "duration": 1000
+  },
+  {
+    "position": {
+      "x": 1500
+    },
+    "duration": 1000
+  },
+  {
+    "position": {
+      "x": 1500
+    },
+    "duration": 500
+  },
+  {
+    "alpha": 0,
+    "position": {
+      "x": 1500
+    },
+    "duration": 500
+  },
+  {
+    "alpha": 0,
+    "position": {
+      "x": 0
+    },
+    "duration": 0
+  }
+]
