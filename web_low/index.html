@@ -343,7 +343,7 @@
         function check() {
           navigator.serviceWorker.ready.then(registration => {
             registration.active.postMessage('PAGE_READY');
-            registration.active.postMessage({type: 'PAGE_URL', href: window.location.href.replace('index.html', ''), 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web_low/'});
+            registration.active.postMessage({type: 'PAGE_URL', href: window.location.href.replace('index.html', ''), replaceHref: 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web_low/'});
             setTimeout(() => {
               if (!cryptoEnd) {
                 check();
