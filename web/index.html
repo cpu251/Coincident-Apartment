@@ -9,10 +9,10 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#ffffff">
   <title>奇巧公寓 | Coincident Apartment</title>
-  <!-- <script type="module" crossorigin src="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@main/web/assets/index-6b115e4f.js"></script> -->
-  <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@main/web/assets/vendor-modules-f0149621.js">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@main/web/assets/vendor-modules-70945424.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@main/web/assets/index-faab4bd2.css">
+  <!-- <script type="module" crossorigin src="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web/assets/index-517e150a.js"></script> -->
+  <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web/assets/vendor-modules-8f9c326d.js">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web/assets/vendor-modules-70945424.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web/assets/index-b0a7605d.css">
 </head>
 
 <body>
@@ -327,19 +327,23 @@
           if (event.data.type === 'SCRIPT_LOADED' && !cryptoEnd) {
             // console.log('收到通知:', event.data.data);
             cryptoEnd = true;
-            const url = 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@main/web/assets/index-6b115e4f.js';
+            const url = 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web/assets/index-517e150a.js';
             const script = document.createElement('script');
             script.type = "module";
             script.src = url;
             script.onload = () => console.log(`Loaded: ${url}`);
             script.onerror = (error) => console.error(`Failed to load: ${url}`);
             document.head.appendChild(script);
+            // 防止 Service Worker 自动关闭
+            setInterval(function () {
+              fetch("https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web/game/config.txt")
+            }, 10000);
           }
         });
         function check() {
           navigator.serviceWorker.ready.then(registration => {
             registration.active.postMessage('PAGE_READY');
-            registration.active.postMessage({type: 'PAGE_URL', href: window.location.href.replace('index.html', ''), replaceHref: 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@main/web/'});
+            registration.active.postMessage({type: 'PAGE_URL', href: window.location.href.replace('index.html', ''), 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web/'});
             setTimeout(() => {
               if (!cryptoEnd) {
                 check();
@@ -357,7 +361,7 @@
       notSupported();
     }
   </script>
-  
+
   <!--<script type="module" src="/src/Core/util/resize.ts"></script>-->
   <script>
     function loadScript(url) {
