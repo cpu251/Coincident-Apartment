@@ -9,10 +9,10 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#ffffff">
   <title>奇巧公寓 | Coincident Apartment</title>
-  <!-- <script type="module" crossorigin src="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web_low/assets/index-847ec190.js"></script> -->
-  <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web_low/assets/vendor-modules-e4f8c0de.js">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web_low/assets/vendor-modules-70945424.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web_low/assets/index-39c8423b.css">
+  <!-- <script type="module" crossorigin src="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.23333/web_low/assets/index-d76e434d.js"></script> -->
+  <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.23333/web_low/assets/vendor-modules-a6a9f451.js">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.23333/web_low/assets/vendor-modules-70945424.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.23333/web_low/assets/index-b94be325.css">
 </head>
 
 <body>
@@ -317,17 +317,16 @@
     const isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // 判断是否是 iOS终端
     // if ("serviceWorker" in navigator && !isIOS) {
     if ("serviceWorker" in navigator) {
+      let cryptoEnd = false;
       navigator.serviceWorker.register("./webgal-serviceworker.js").then(function (reg) {
         // registration worked
         console.log("Registration succeeded. Scope is " + reg.scope);
-
-        let cryptoEnd = false;
         // 监听来自 Service Worker 的消息
         navigator.serviceWorker.addEventListener('message', event => {
           if (event.data.type === 'SCRIPT_LOADED' && !cryptoEnd) {
             // console.log('收到通知:', event.data.data);
             cryptoEnd = true;
-            const url = 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web_low/assets/index-847ec190.js';
+            const url = 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.23333/web_low/assets/index-d76e434d.js';
             const script = document.createElement('script');
             script.type = "module";
             script.src = url;
@@ -336,14 +335,14 @@
             document.head.appendChild(script);
             // 防止 Service Worker 自动关闭
             setInterval(function () {
-              fetch("https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web_low/game/config.txt")
-            }, 10000);
+              fetch("./game/config.txt", { cache: 'no-store' })
+            }, 20000);
           }
         });
         function check() {
           navigator.serviceWorker.ready.then(registration => {
             registration.active.postMessage('PAGE_READY');
-            registration.active.postMessage({type: 'PAGE_URL', href: window.location.href.replace('index.html', ''), replaceHref: 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.2333/web_low/'});
+            registration.active.postMessage({type: 'PAGE_URL', href: window.location.href.replace('index.html', ''), replaceHref: 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.23333/web_low/'});
             setTimeout(() => {
               if (!cryptoEnd) {
                 check();
