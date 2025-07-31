@@ -9,15 +9,14 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#ffffff">
   <title>奇巧公寓 | Coincident Apartment</title>
-  <!-- <script type="module" crossorigin src="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.233333/web/assets/index.js"></script> -->
-  <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.233333/web/assets/vendor-modules.js">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.233333/web/assets/vendor-modules.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.233333/web/assets/index.css">
+  <script type="module" crossorigin src="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.2.233/web/assets/index.js"></script>
+  <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.2.233/web/assets/vendor-modules.js">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.2.233/web/assets/vendor-modules.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.2.233/web/assets/index.css">
 </head>
 
 <body>
   <!--快速显示落地页，让用户感知不到加载的过程-->
-  <div id="ebg_old"></div>
   <div id="ebg"></div>
   <div id="Title_enter_page" onclick="enter()" style="
             width: 2560px;
@@ -98,61 +97,61 @@
   <div id="root"></div>
   <script>
     (function () {
-      // 保存原始的 requestAnimationFrame 和 cancelAnimationFrame
       const originalRAF = window.requestAnimationFrame;
       const originalCancelRAF = window.cancelAnimationFrame;
 
-      // 初始值为 null 表示不限制帧率
       window.fps = null;
 
-      // 生成唯一的回调 ID
-      let rafId = 0;
-      const rafCallbacks = new Map();
+      let rafIdCounter = 0;
+      const callbacks = new Map();
 
       function customRAF(callback) {
         if (typeof window.fps !== 'number' || window.fps <= 0) {
-          // 如果没有设置 fps，使用原始的 RAF
           return originalRAF(callback);
         }
 
-        const currentId = ++rafId;
-
+        const id = ++rafIdCounter;
         const interval = 1000 / window.fps;
-        const start = performance.now();
+        const startTime = performance.now();
+        let scheduled = true;
 
-        function tick() {
-          const now = performance.now();
-          if (now - start >= interval) {
-            if (rafCallbacks.has(currentId)) {
-              callback(now);
-              rafCallbacks.delete(currentId);
-            }
+        function loop(now) {
+          if (!scheduled) return;
+
+          const delta = now - startTime;
+          if (delta >= interval) {
+            callbacks.delete(id);
+            callback(now);
           } else {
-            rafCallbacks.set(currentId, setTimeout(tick, interval - (now - start)));
+            const realId = originalRAF(loop);
+            callbacks.set(id, { realId, cancel: () => (scheduled = false) });
           }
         }
 
-        rafCallbacks.set(currentId, setTimeout(tick, interval));
-        return currentId;
+        const realId = originalRAF(loop);
+        callbacks.set(id, { realId, cancel: () => (scheduled = false) });
+
+        return id;
       }
 
       function customCancelRAF(id) {
-        const timeoutId = rafCallbacks.get(id);
-        if (timeoutId != null) {
-          clearTimeout(timeoutId);
-          rafCallbacks.delete(id);
+        const entry = callbacks.get(id);
+        if (entry) {
+          originalCancelRAF(entry.realId);
+          entry.cancel?.();
+          callbacks.delete(id);
         } else {
-          // fallback for native RAF ids
           originalCancelRAF(id);
         }
       }
 
-      // 覆写全局的 requestAnimationFrame 和 cancelAnimationFrame
       window.requestAnimationFrame = customRAF;
       window.cancelAnimationFrame = customCancelRAF;
     })();
   </script>
   <script>
+    const targetHeight = 1440;
+    const targetWidth = 2560;
     /**
      * 在窗口大小改变时进行强制缩放
      */
@@ -169,9 +168,6 @@
       );
     }
     function resize() {
-      const targetHeight = 1440;
-      const targetWidth = 2560;
-
       const h = window.innerHeight; // 窗口高度
       const w = window.innerWidth; // 窗口宽度
       const zoomH = h / targetHeight; // 以窗口高度为基准的变换比
@@ -187,7 +183,6 @@
       const root = document.getElementById('root'); // 获取根元素
       const title = document.getElementById('Title_enter_page');
       const ebg = document.getElementById('ebg');
-      const ebgOld = document.getElementById('ebg_old');
       const elements = [root, title];
       if (w > h) {
         if (ebg) {
@@ -195,11 +190,6 @@
           ebg.style.width = `100vw`;
           ebg.style.flexDirection = `row`;
           ebgTransform = '';
-        }
-        if (ebgOld) {
-          ebgOld.style.height = `100vh`;
-          ebgOld.style.width = `100vw`;
-          ebgOld.style.flexDirection = `row`;
         }
         mw = -mw;
         mh = -mh;
@@ -217,11 +207,6 @@
           ebg.style.height = `${targetHeight}px`;
           ebg.style.width = `${targetWidth}px`;
           ebg.style.flexDirection = `column`;
-        }
-        if (ebgOld) {
-          ebgOld.style.height = `${targetHeight}px`;
-          ebgOld.style.width = `${targetWidth}px`;
-          ebgOld.style.flexDirection = `column`;
         }
         mw2os = -mw2os;
         if (h * (9 / 16) >= w) {
@@ -242,9 +227,6 @@
       }
       if (ebg) {
         ebg.style.transform = ebgTransform;
-      }
-      if (ebgOld) {
-        ebgOld.style.transform = ebgTransform;
       }
       for (const element of elements) {
         if (element) {
@@ -277,35 +259,28 @@
       const title = document.getElementById('Title_enter_page');
       const root = document.getElementById('root');
       const ebg = document.getElementById('ebg');
-      const ebgOld = document.getElementById('ebg_old');
       function iosResize() {
         if (window.outerWidth / 16 > window.outerHeight / 9) {
           if (ebg) {
             ebg.style.flexDirection = `row`;
           }
-          if (ebgOld) {
-            ebgOld.style.flexDirection = `row`;
-          }
         } else {
           if (ebg) {
             ebg.style.flexDirection = `column`;
           }
-          if (ebgOld) {
-            ebgOld.style.flexDirection = `column`;
-          }
         }
         const meta = document.querySelector('meta[name="viewport"]');
         if (meta) {
-          let scale = window.outerHeight / 1440
-          if (window.outerWidth / 2560 < window.outerHeight / 1440) {
-            scale = window.outerWidth / 2560;
+          let scale = window.outerHeight / targetHeight
+          if (window.outerWidth / targetWidth < window.outerHeight / targetHeight) {
+            scale = window.outerWidth / targetWidth;
           }
           meta.setAttribute("content", "width=device-width, initial-scale=" + scale.toFixed(6) + ", minimum-scale=" + scale.toFixed(6) + ", maximum-scale=" + scale.toFixed(6));
         }
       }
-      let scale = window.outerHeight / 1440
-      if (window.outerWidth / 2560 < window.outerHeight / 1440) {
-        scale = window.outerWidth / 2560;
+      let scale = window.outerHeight / targetHeight
+      if (window.outerWidth / targetWidth < window.outerHeight / targetHeight) {
+        scale = window.outerWidth / targetWidth;
       }
       document.body.style.height = '130vh';
       document.body.style.overflowY = 'auto';
@@ -320,140 +295,22 @@
       if (ebg) {
         ebg.style.height = '130vh';
       }
-      if (ebgOld) {
-        ebgOld.style.height = '130vh';
-      }
       if (title) {
         title.style.position = "absolute";
         title.style.left = "50%";
-        title.style.marginLeft = "-1280px";
+        title.style.marginLeft = "-" + (targetWidth / 2) + "px";
         title.style.top = "50%";
-        title.style.marginTop = "calc(-720px + 15vh)";
+        title.style.marginTop = "calc(-" + (targetHeight / 2) + "px + 15vh)";
       }
       if (root) {
         root.style.position = "absolute";
         root.style.left = "50%";
-        root.style.marginLeft = "-1280px";
+        root.style.marginLeft = "-" + (targetWidth / 2) + "px";
         root.style.top = "50%";
-        root.style.marginTop = "calc(-720px + 15vh)";
+        root.style.marginTop = "calc(-" + (targetHeight / 2) + "px + 15vh)";
       }
       window.onload = iosResize;
       window.onresize = iosResize;
-    }
-  </script>
-  <script>
-    /**
-     * 注册 Service Worker
-     */
-    function isLocalNetworkURL(url) {
-      var urlObj = new URL(url);
-      var hostname = urlObj.hostname;
-
-      // 检查是否为localhost或127.0.0.1
-      if (hostname === 'localhost' || hostname === '127.0.0.1') {
-          return true;
-      }
-
-      // 检查是否为私有IP地址（例如：192.168.x.x, 10.x.x.x等）
-      var privateIPRegex = /^(10|172\.(1[6-9]|2[0-9]|3[01])|192\.168)\./;
-      return privateIPRegex.test(hostname);
-    }
-    function notSupported() {
-      if (isLocalNetworkURL(location.href)) {
-        return
-      }
-      var html = '<div style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;background-color: #333;color: #ccc;text-align: center;vertical-align: middle;">';
-      html += '<p>你的浏览器不支持运行，请升级、更换浏览器，或使用下载版运行。</p>';
-      html += '<p>Your browser does not support the operation. Please upgrade, change the browser, or use the downloaded version.</p>';
-      html += '<p>お使いのブラウザはこの操作をサポートしていません。アップグレードするか、ブラウザを変更するか、ダウンロードしたバージョンをご利用ください。</p>';
-      html += '</div>';
-      document.body.innerHTML = html;
-    }
-    const u = navigator.userAgent;
-    const isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // 判断是否是 iOS终端
-    // if ("serviceWorker" in navigator && !isIOS) {
-    if ("serviceWorker" in navigator) {
-      let cryptoEnd = false;
-      navigator.serviceWorker.register("./webgal-serviceworker.js").then(function (reg) {
-        // registration worked
-        console.log("Registration succeeded. Scope is " + reg.scope);
-        // 监听来自 Service Worker 的消息
-        navigator.serviceWorker.addEventListener('message', event => {
-          if (event.data.type === 'SCRIPT_LOADED' && !cryptoEnd) {
-            // console.log('收到通知:', event.data.data);
-            cryptoEnd = true;
-            const url = 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.233333/web/assets/index.js';
-            const script = document.createElement('script');
-            script.type = "module";
-            script.src = url;
-            script.onload = () => console.log(`Loaded: ${url}`);
-            script.onerror = (error) => console.error(`Failed to load: ${url}`);
-            document.head.appendChild(script);
-            // 防止 Service Worker 自动关闭
-            function reRegister() {
-              navigator.serviceWorker.getRegistrations().then(async function(registrations) {
-                for (let registration of registrations) {
-                  await registration.unregister();
-                }
-              }).catch(function(error) {
-                console.error('获取 ServiceWorker 注册信息失败:', error);
-              }).finally(() => {
-                navigator.serviceWorker.register("./webgal-serviceworker.js").then(function (reg) {
-                  // registration worked
-                  console.log("Registration succeeded. Scope is " + reg.scope);
-                  check();
-                });
-              });
-            }
-            function ping() {
-              fetch('./game/scene/start.txt')
-                .then(response => response.body)
-                .then(body => {
-                  try {
-                    const reader = body.getReader();
-                    reader.read().then(({done, value}) => {
-                      if (done) {
-                        // console.log('Stream is done.');
-                      } else {
-                        if (value[0] !== 117) {
-                          reRegister();
-                        }
-                        return reader.read();
-                      }
-                    });
-                  } catch (error) {
-                    reRegister();
-                  }
-                }).catch(err => {
-                  reRegister();
-                }).finally(() => {
-                  setTimeout(() => {
-                    ping();
-                  }, 2000);
-                });
-            }
-            ping();
-          }
-        });
-        function check() {
-          navigator.serviceWorker.ready.then(registration => {
-            registration.active.postMessage('PAGE_READY');
-            registration.active.postMessage({type: 'PAGE_URL', href: window.location.href.replace('index.html', ''), replaceHref: 'https://cdn.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.1.233333/web/'});
-            setTimeout(() => {
-              if (!cryptoEnd) {
-                check();
-              }
-            }, 50);
-          });
-        }
-        check();
-      }).catch(function (error) {
-        // registration failed
-        notSupported();
-        console.log("Registration failed with " + error);
-      });
-    } else {
-      notSupported();
     }
   </script>
   
@@ -490,6 +347,8 @@
     loadLive2D();
   </script>
   <script>
+    const u = navigator.userAgent;
+    const isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // 判断是否是 iOS终端
     let enterPromise = new Promise(res => window.enterPromise = res);
     let renderPromise = new Promise(res => window.renderPromise = res);
     /**
@@ -550,7 +409,7 @@
         if (title) {
           title.style.display = "none";
         }
-      }, 5000); // 将落地页设置为不显示
+      }, 2000); // 将落地页设置为不显示
       window.enterPromise();
       delete window.enterPromise;
     }
