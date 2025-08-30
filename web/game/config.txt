@@ -8,5 +8,6 @@ Game_Logo:bg_warn.webp;
 Enable_Appreciation:true;
 Description:奇巧公寓;
 Package_name:com.bearcat.coincidentapartment;
-Game_ver:0.2.233;
-versionCode:100;
+Game_ver:0.3.233;
+versionCode:101;
+low:0;
