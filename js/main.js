@@ -39,6 +39,22 @@
                 }, 1000);
             }
         });
+        $('#download_link').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'GET',
+                url: 'https://static.itch.io/lib/jquery-ui-timepicker-addon.min.js',
+                timeout: 1500,
+                cache: false,
+                complete: function (data) {
+                    if (data.status === 200) {
+                        $('#download_link1')[0].click();
+                    } else {
+                        $('#download_link2')[0].click();
+                    }
+                }
+            });
+        });
     })(jQuery);
 
 
