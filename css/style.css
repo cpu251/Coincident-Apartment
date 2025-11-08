@@ -13,7 +13,25 @@ body .bg-img {
 body nav {
   background: rgba(0, 0, 0, 0.3);
 }
-body nav .navbar-nav a {
+body nav .lang {
+  display: flex;
+  border: solid 1px #ffffff;
+  border-radius: 5px;
+  margin-right: 10px;
+  overflow: hidden;
+}
+body nav .lang a{
+  display: block;
+  padding: 0.4rem 0.6rem;
+  border-left: solid 1px #ffffff;
+}
+body nav .lang a.active {
+  background: rgba(255, 255, 255, 0.4);
+}
+body nav .lang a:first-child {
+  border-left: none;
+}
+body nav .navbar-nav a, body nav .lang a {
   font-size: 16px;
   text-transform: uppercase;
   color: #fff !important;
@@ -22,7 +40,7 @@ body nav .navbar-nav a {
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
 }
-body nav .navbar-nav a:hover {
+body nav .navbar-nav a:hover, body nav .lang a:hover {
   color: #ff8013 !important;
 }
 body nav .navbar-nav .btn-danger {
@@ -108,6 +126,15 @@ a, a:hover {
 }
 .fh5co-banner-text-box a img {
   margin-right: 10px;
+}
+.en .fh5co-banner-text-box .quote-box h2 {
+  font-size: 34px;
+}
+.en .fh5co-banner-text-box .quote-box h2 span {
+  font-size: 28px;
+}
+.en .fh5co-banner-text-box a {
+  font-size: 0.85em;
 }
 
 .fh5co-network, .fh5co-about-us {
@@ -268,7 +295,7 @@ a, a:hover {
 }
 .fh5co-content-box .gallery .card img {
   border-radius: 0;
-  max-height: 580px;
+  /*max-height: 580px;*/
 }
 .fh5co-content-box .gallery .card .card-body {
   background: #ff8013;
