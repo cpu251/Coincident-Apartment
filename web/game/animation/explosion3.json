@@ -1,0 +1,121 @@
+[
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.1,
+    "weakMagnitude": 0.1,
+    "duration": 2000,
+    "time": 300
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.1,
+    "weakMagnitude": 0.1,
+    "duration": 2000,
+    "time": 1500
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.1,
+    "weakMagnitude": 0.1,
+    "duration": 2000,
+    "time": 2700
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 500,
+    "time": 3900
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 500,
+    "time": 5000
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 500,
+    "time": 5800
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.6,
+    "weakMagnitude": 0.9,
+    "duration": 500,
+    "time": 6600
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.6,
+    "weakMagnitude": 0.9,
+    "duration": 500,
+    "time": 7500
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 1,
+    "weakMagnitude": 1,
+    "duration": 300,
+    "time": 8200
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 1,
+    "weakMagnitude": 1,
+    "duration": 300,
+    "time": 8600
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 1,
+    "weakMagnitude": 1,
+    "duration": 300,
+    "time": 9000
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 1,
+    "weakMagnitude": 1,
+    "duration": 300,
+    "time": 9400
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 1,
+    "weakMagnitude": 1,
+    "duration": 1000,
+    "time": 9800
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.6,
+    "weakMagnitude": 0.9,
+    "duration": 1000,
+    "time": 10000
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 1000,
+    "time": 10500
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 1000,
+    "time": 11000
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.1,
+    "weakMagnitude": 0.1,
+    "duration": 1000,
+    "time": 11500
+  }
+]

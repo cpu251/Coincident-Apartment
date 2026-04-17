@@ -1,0 +1,37 @@
+[
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 4000
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 4400
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 4800
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 5200
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 500,
+    "time": 5950
+  }
+]
