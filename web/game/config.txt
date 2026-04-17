@@ -9,6 +9,6 @@ Enable_Appreciation:true;
 Show_panic:false;
 Description:奇巧公寓;
 Package_name:com.bearcat.coincidentapartment;
-Game_ver:0.5.233;
-versionCode:300;
+Game_ver:0.6.233;
+versionCode:600;
 low:0;

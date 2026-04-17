@@ -6,16 +6,18 @@
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="manifest" href="./manifest.json" />
   <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="only light">
+  <meta name="supported-color-schemes" content="light">
+  <meta name="darkreader-lock">
   <meta name="theme-color" content="#ffffff">
   <title>奇巧公寓 | Coincident Apartment</title>
-  <script type="module" crossorigin src="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.5.233/web/assets/index.js"></script>
-  <link rel="modulepreload" crossorigin href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.5.233/web/assets/vendor-modules.js">
-  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.5.233/web/assets/vendor-modules.css">
-  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.5.233/web/assets/index.css">
+  <script type="module" crossorigin src="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.6.233/web/assets/index.js"></script>
+  <link rel="modulepreload" crossorigin href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.6.233/web/assets/vendor-modules.js">
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.6.233/web/assets/vendor-modules.css">
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.6.233/web/assets/index.css">
 </head>
 
-<body>
+<body style="margin: 0;">
   <!--快速显示落地页，让用户感知不到加载的过程-->
   <div id="ebg"></div>
   <div id="Title_enter_page" onclick="enter()" style="
@@ -382,6 +384,7 @@
      * 点击屏幕，进入引擎主界面
      */
     function enter() {
+      if (typeof window.enterPromise !== 'function') return;
       const bgContainer = document.getElementById("Title_bg_container");
       if (bgContainer) {
         bgContainer.style.opacity = "0"; // 调整标题背景的透明度
@@ -413,6 +416,43 @@
       window.enterPromise();
       delete window.enterPromise;
     }
+
+    /**
+     * 手柄适配：在落地页按任意按键进入游戏
+     */
+    (function () {
+      let isEntering = false;
+      function pollGamepad() {
+        if (isEntering) return;
+        const gamepads = navigator.getGamepads();
+        for (const gp of gamepads) {
+          if (gp) {
+            for (const button of gp.buttons) {
+              if (button.pressed) {
+                const title = document.getElementById("Title_enter_page");
+                if (title && title.style.display !== "none") {
+                  isEntering = true;
+                  enter();
+                }
+                return;
+              }
+            }
+          }
+        }
+        requestAnimationFrame(pollGamepad);
+      }
+      window.addEventListener("gamepadconnected", pollGamepad);
+      // 如果已经连接了手柄，直接开始轮询
+      setTimeout(() => {
+        const gps = navigator.getGamepads();
+        for (const gp of gps) {
+          if (gp) {
+            pollGamepad();
+            break;
+          }
+        }
+      }, 500);
+    })();
   </script>
 </body>
 
