@@ -1,0 +1,92 @@
+[
+  {
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "colorRed":255,
+    "colorGreen":255,
+    "colorBlue":255,
+    "duration": 0
+  },
+  {
+    "position": {
+      "x": -20,
+      "y": 0
+    },
+    "colorRed":255,
+    "colorGreen":223,
+    "colorBlue":223,
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 0,
+      "y": -20
+    },
+    "colorRed":255,
+    "colorGreen":191,
+    "colorBlue":191,
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "colorRed":255,
+    "colorGreen":159,
+    "colorBlue":159,
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 20,
+      "y": 0
+    },
+    "colorRed":255,
+    "colorGreen":128,
+    "colorBlue":128,
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "colorRed":255,
+    "colorGreen":159,
+    "colorBlue":159,
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 0,
+      "y": 20
+    },
+    "colorRed":255,
+    "colorGreen":191,
+    "colorBlue":191,
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 20,
+      "y": 0
+    },
+    "colorRed":255,
+    "colorGreen":223,
+    "colorBlue":223,
+    "duration": 100
+  },
+  {
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "colorRed":255,
+    "colorGreen":255,
+    "colorBlue":255,
+    "duration": 100
+  }
+]

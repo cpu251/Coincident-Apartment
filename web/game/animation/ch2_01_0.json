@@ -1,0 +1,114 @@
+[
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.1,
+    "weakMagnitude": 0.1,
+    "duration": 500,
+    "time": 4800
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 6400
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 6750
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 7050
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 7800
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 8150
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 8500
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 9300
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 9950
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 10700
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 11050
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 11500
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 11950
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 12350
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 12800
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 1000,
+    "time": 15000
+  }
+]

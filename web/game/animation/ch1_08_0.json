@@ -1,0 +1,86 @@
+[
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.1,
+    "weakMagnitude": 0.1,
+    "duration": 300,
+    "time": 1200
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.2,
+    "duration": 300,
+    "time": 2650
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 200,
+    "time": 3300
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 200,
+    "time": 3800
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 200,
+    "time": 4100
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 200,
+    "time": 4500
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 200,
+    "time": 4800
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 200,
+    "time": 5100
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 500,
+    "time": 5400
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 300,
+    "time": 6800
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.4,
+    "weakMagnitude": 0.6,
+    "duration": 300,
+    "time": 7300
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.6,
+    "weakMagnitude": 0.9,
+    "duration": 500,
+    "time": 8100
+  }
+]

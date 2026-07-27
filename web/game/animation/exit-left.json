@@ -1,0 +1,13 @@
+[
+  {
+    "alpha": 1,
+    "duration": 0
+  },
+  {
+    "position": {
+      "x": -200
+    },
+    "alpha": 0,
+    "duration": 500
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "colorRed":255,
+    "colorGreen":255,
+    "colorBlue":255,
+    "duration": 0
+  },
+  {
+    "colorRed":255,
+    "colorGreen":128,
+    "colorBlue":128,
+    "duration": 400
+  },
+  {
+    "colorRed":255,
+    "colorGreen":255,
+    "colorBlue":255,
+    "duration": 400
+  }
+]

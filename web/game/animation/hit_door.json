@@ -1,0 +1,23 @@
+[
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.3,
+    "weakMagnitude": 0.45,
+    "duration": 300,
+    "time": 100
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.3,
+    "weakMagnitude": 0.45,
+    "duration": 300,
+    "time": 750
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.3,
+    "weakMagnitude": 0.45,
+    "duration": 300,
+    "time": 1400
+  }
+]
