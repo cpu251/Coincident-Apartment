@@ -1,0 +1,16 @@
+[
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.2,
+    "weakMagnitude": 0.3,
+    "duration": 300,
+    "time": 4600
+  },
+  {
+    "startDelay": 0,
+    "strongMagnitude": 0.05,
+    "weakMagnitude": 0.05,
+    "duration": 1700,
+    "time": 5500
+  }
+]

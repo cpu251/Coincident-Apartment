@@ -1,0 +1,80 @@
+[
+  {
+    "alpha": 1,
+    "position": {
+      "x": 1800,
+      "y": 220
+    },
+    "scale": {
+      "x": 1.25,
+      "y": 1.25
+    },
+    "brightnessFilm": 1,
+    "duration": 0
+  },
+  {
+    "alpha": 1,
+    "position": {
+      "x": -1800,
+      "y": 220
+    },
+    "scale": {
+      "x": 1.25,
+      "y": 1.25
+    },
+    "brightnessFilm": 1,
+    "duration": 500
+  },
+  {
+    "alpha": 1,
+    "position": {
+      "x": -1800,
+      "y": 220
+    },
+    "scale": {
+      "x": 1.25,
+      "y": 1.25
+    },
+    "brightnessFilm": 1,
+    "duration": 500
+  },
+  {
+    "alpha": 1,
+    "position": {
+      "x": 1800,
+      "y": 220
+    },
+    "scale": {
+      "x": 1.25,
+      "y": 1.25
+    },
+    "brightnessFilm": 1,
+    "duration": 500
+  },
+  {
+    "alpha": 1,
+    "position": {
+      "x": 1800,
+      "y": 220
+    },
+    "scale": {
+      "x": 1.25,
+      "y": 1.25
+    },
+    "brightnessFilm": 1,
+    "duration": 500
+  },
+  {
+    "alpha": 1,
+    "position": {
+      "x": 0,
+      "y": 220
+    },
+    "scale": {
+      "x": 1.25,
+      "y": 1.25
+    },
+    "brightnessFilm": 1,
+    "duration": 300
+  }
+]

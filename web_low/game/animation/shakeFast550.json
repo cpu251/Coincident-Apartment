@@ -1,0 +1,38 @@
+[
+  {
+    "position": {
+      "x": 550
+    },
+    "duration": 0
+  },
+  {
+    "position": {
+      "x": 540
+    },
+    "duration": 50
+  },
+  {
+    "position": {
+      "x": 560
+    },
+    "duration": 50
+  },
+  {
+    "position": {
+      "x": 540
+    },
+    "duration": 50
+  },
+  {
+    "position": {
+      "x": 560
+    },
+    "duration": 50
+  },
+  {
+    "position": {
+      "x": 550
+    },
+    "duration": 25
+  }
+]

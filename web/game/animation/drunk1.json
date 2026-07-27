@@ -1,0 +1,12 @@
+[
+  {
+    "convolutionFilm": 0,
+    "displacementFilm": 0,
+    "duration": 0
+  },
+  {
+    "convolutionFilm": 0.167,
+    "displacementFilm": 10,
+    "duration": 500
+  }
+]
