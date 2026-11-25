@@ -33,10 +33,10 @@
   <meta name="darkreader-lock">
   <meta name="theme-color" content="#ffffff">
   <title>奇巧公寓 | Coincident Apartment</title>
-  <script type="module" crossorigin src="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.23333333/web/assets/index.js"></script>
-  <link rel="modulepreload" crossorigin href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.23333333/web/assets/vendor-modules.js">
-  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.23333333/web/assets/vendor-modules.css">
-  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.23333333/web/assets/index.e.css">
+  <script type="module" crossorigin src="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.8.233/web/assets/index.js"></script>
+  <link rel="modulepreload" crossorigin href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.8.233/web/assets/vendor-modules.js">
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.8.233/web/assets/vendor-modules.css">
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.8.233/web/assets/index.e.css">
 </head>
 
 <body style="margin: 0;">
@@ -527,7 +527,9 @@
      */
     const ua = navigator.userAgent;
     const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-    if (isIOSDevice) {
+    // B 站 Toy 内 iOS 与安卓一样自动旋转，不再提示横屏
+    const useIOSLayout = isIOSDevice && window.__WEBGAL_BILIBILI_TOY__ !== true;
+    if (useIOSLayout) {
       /**
        * iOS
        */
@@ -622,7 +624,7 @@
       }
     }
 
-    if (!isIOSDevice) {
+    if (!useIOSLayout) {
       // 创建一个新的 meta 标签
       const meta = document.createElement('meta');
       meta.name = "viewport";
@@ -734,8 +736,8 @@
     loadLive2D();
   </script>
   <script>
-    const u = navigator.userAgent;
-    const isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // 判断是否是 iOS终端
+    // useIOSLayout 复用上方 resize 脚本块的判断：
+    // B 站 Toy 内 iOS 与安卓一样旋转，落地页按普通设备处理
     let enterPromise = new Promise(res => window.enterPromise = res);
     let renderPromise = new Promise(res => window.renderPromise = res);
     let enterReady = false;
@@ -809,7 +811,7 @@
         if (ebgLandingMask)
           ebgLandingMask.style.opacity = "0";
       }, 500); //500ms后开始降低落地页透明度
-      if (!isIOS && title) {
+      if (!useIOSLayout && title) {
         title.style.pointerEvents = "none"; //落地页不再响应点击
       }
       setTimeout(() => {
