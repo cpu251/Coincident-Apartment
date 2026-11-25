@@ -5,7 +5,11 @@
   <!-- B 站 Toy 环境：页面打开时立即判定，落地页外链靠下面的样式隐藏（不等 React） -->
   <script>
     (function () {
-      if (window.__WEBGAL_FORCE_BILIBILI_TOY__ !== true && location.hostname !== 'www.bilibili.com') return;
+      if (
+        window.__WEBGAL_FORCE_BILIBILI_TOY__ !== true &&
+        location.hostname !== 'www.bilibili.com' &&
+        location.hostname !== 'www.bilibilitoy.com'
+      ) return;
       window.__WEBGAL_BILIBILI_TOY__ = true;
       document.documentElement.classList.add('wg-bilibili-toy');
     })();
@@ -16,7 +20,7 @@
   <!-- B 站 Toy 正式域名下加载官方 SDK；同步写入，保证应用脚本执行时 window.toy 已就绪 -->
   <script>
     (function () {
-      if (location.hostname !== 'www.bilibili.com') return;
+      if (location.hostname !== 'www.bilibili.com' && location.hostname !== 'www.bilibilitoy.com') return;
       document.write('<script src="https://s1.hdslb.com/bfs/seed/toy/app/sdk/toy-sdk.js"><\/script>');
     })();
   </script>
@@ -29,10 +33,10 @@
   <meta name="darkreader-lock">
   <meta name="theme-color" content="#ffffff">
   <title>奇巧公寓 | Coincident Apartment</title>
-  <script type="module" crossorigin src="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.23333/web/assets/index.js"></script>
-  <link rel="modulepreload" crossorigin href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.23333/web/assets/vendor-modules.js">
-  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.23333/web/assets/vendor-modules.css">
-  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.23333/web/assets/index.e.css">
+  <script type="module" crossorigin src="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.233333/web/assets/index.js"></script>
+  <link rel="modulepreload" crossorigin href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.233333/web/assets/vendor-modules.js">
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.233333/web/assets/vendor-modules.css">
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/gh/cpu251/Coincident-Apartment@0.7.233333/web/assets/index.e.css">
 </head>
 
 <body style="margin: 0;">
